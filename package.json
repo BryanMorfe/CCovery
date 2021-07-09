@@ -1,0 +1,35 @@
+{
+  "name": "color_mapper",
+  "version": "1.0.0",
+  "description": "Color Map discovery and creation tool",
+  "productName": "CCovery",
+  "main": "src/main.js",
+  "build": {
+    "appId": "com.bryanmorfe.ccovery",
+    "linux": {
+      "target": "AppImage",
+      "icon": "./build/icons/AppIcon-512x512.png",
+      "category": "Utility"
+    },
+    "files": []
+  },
+  "scripts": {
+    "start": "electron .",
+    "startWithTransparentOption": "electron --enable-transparent-visuals .",
+    "startWithAllOptions": "electron --enable-transparent-visuals --disable-gpu .",
+    "build": "electron-packager . CCover --platform=linux --asar --icon resources/Icons/AppIcon.png",
+    "dist": "electron-builder"
+  },
+  "author": "Bryan Morfe",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "electron": "^13.1.5",
+    "electron-builder": "^22.11.7",
+    "electron-packager": "^15.2.0"
+  },
+  "dependencies": {
+    "@electron/remote": "^1.2.0",
+    "jimp": "^0.16.1"
+  }
+}
