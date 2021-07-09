@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link href="./main.css" type="text/css" rel="stylesheet" />
+    <title>Color Mapper</title>
+  </head>
+  <body>
+    <div class="bg">
+      <header>
+        <div class="icon">
+          <img src="../resources/icon-nobg.png" />
+        </div>
+        <div class="header">
+          CCovery
+        </div>
+        <div id="window-tools">
+          <div class="window-tool" id="close-icon"></div>
+          <div class="window-tool" id="maximize-icon"></div>
+          <div class="window-tool" id="minimize-icon"></div>
+        </div>
+      </header>
+
+      <main>
+        <div id="preview-container">
+          <img id="preview-heat-map" src="../resources/img.png" />
+        </div>
+        <div class="main-container">
+          <div class="select-input">
+            <select id="color-map-select">
+              <option value="0">Black to White</option>
+              <option value="1">Inferno</option>
+              <option value="2">Plasma</option>
+              <option selected value="3">Viridis</option>
+              <option value="4">Magma</option>
+              <option value="5">False Green</option>
+              <option value="6">False Blue</option>
+              <option value="7">Jet</option>
+              <option value="8">Cool</option>
+            </select>
+          </div>
+          <div class="gradient-container">
+            <div id="gradient-points"></div>
+            <div id="gradient-bar"></div>
+          </div>
+          <div id="map-options">
+            <button id="reverse-btn">Reverse</button><button id="save-btn">Save</button><button id="reset-btn">Reset</button>
+          </div>
+        </div>
+      </main>
+
+      <div class="color-picker-invisible-container hidden"></div>
+      <div class="color-picker hidden" id="color-picker">
+        <div class="sat-bg"></div>
+        <div class="blackness-bg picker-container" picker-mode="both" editing="false">
+          <div class="picker"></div>
+        </div>
+        <div class="hue-slider picker-container" picker-mode="vertical" editing="false">
+          <div class="picker"></div>
+        </div>
+        <div class="picker-data">
+          <div class="hsb-data">
+            <div class="data-group">
+              <div class="fg-lightest">Hue</div>
+              <div class="fg-theme-color hue">25&deg;</div>
+            </div>
+            <div class="data-group">
+              <div class="fg-lightest">Sat</div>
+              <div class="fg-theme-color sat">67%</div>
+            </div>
+            <div class="data-group">
+              <div class="fg-lightest">Value</div>
+              <div class="fg-theme-color blk">33%</div>
+            </div>
+          </div>
+          <div class="rgb-data">
+            <div class="data-group">
+              <div class="fg-lightest">Red</div>
+              <div class="fg-theme-color red">255</div>
+            </div>
+            <div class="data-group">
+              <div class="fg-lightest">Green</div>
+              <div class="fg-theme-color green">64</div>
+            </div>
+            <div class="data-group">
+              <div class="fg-lightest">Blue</div>
+              <div class="fg-theme-color blue">64</div>
+            </div>
+          </div>
+          <div class="rgb-hex-editor">
+            <input type="text" class="rgb-hex-input" value="#FFFFFF">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./gradient.js"></script>
+    <script src="./color_picker.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
